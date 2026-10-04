@@ -1,0 +1,182 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{criterion}[theorem]{Criterion}
+\newcommand{\Span}{\operatorname{Span}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\charK}{\operatorname{char}
+}
+\title{Minimal idempotent subspaces of every dimension in evolution algebras}
+\author{Wenlin Zhang and Haobo Ma\\The Omega Institute / National University of Singapore (NUS)}
+\date{4 October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We answer the question in Andres Barei's Remark~3.5.  For every integer
+$d\geq 2$ and every field of characteristic different from two, we construct
+an evolution algebra containing a minimal nonzero idempotent subspace of
+dimension $d$.  The case $d=3$ is realized explicitly in dimension five and
+its ambient minimality is checked in Lean~4.  The construction has intrinsic
+embedding dimension exactly $2d-1$.  We also record a direct criterion in
+dimension three and the changes over $\mathbb Q$, $\mathbb R$, and fields of
+characteristic two.
+\end{abstract}
+
+\section*{1. The five-dimensional answer to Remark 3.5}
+Let $E$ have natural basis $e_1,\ldots,e_5$, with $e_i e_j=0$ for $i\ne j$,
+and put
+\[
+ u=e_1+e_2+e_3+e_4+e_5,\qquad v=e_2-e_3,\qquad w=e_4-e_5.
+\]
+Define
+\[
+ e_1^2=4u+2w,\quad e_2^2=v,\quad e_3^2=-v,\quad
+ e_4^2=v+w,\quad e_5^2=-v-w.
+\]
+The row-square matrix is
+\[
+\begin{pmatrix}4&4&4&6&2\\0&1&-1&0&0\\0&-1&1&0&0\\
+0&1&-1&1&-1\\0&-1&1&-1&1\end{pmatrix}.
+\]
+The vectors $u,v,w$ are independent and direct multiplication gives
+\[
+ u^2=4u+2w,\qquad uv=2v,\qquad uw=2v+2w,
+ \qquad v^2=vw=w^2=0.                                      \tag{1}
+\]
+Thus $V=\Span\{u,v,w\}=E^2$ and (1) gives $V^2=V$.
+
+\begin{proposition}
+$V$ is a minimal nonzero idempotent subspace of $E$.
+\end{proposition}
+\begin{proof}[Hand-checkable proof]
+Every proper subalgebra of $V$ lies in $W=\Span\{v,w\}$ and has zero
+multiplication.  Indeed, if $x=au+bv+cw$ belongs to a subalgebra $U$ with
+$a\ne0$, then
+\[
+ s=x^2-4ax=4acv+2a^2w\in U,\qquad xs-2as=4a^3v\in U.
+\]
+Since $2a\ne0$, this gives $v\in U$, then $w\in U$ from the first formula,
+and finally $u\in U$ from $x$.  Hence $U=V$.  If no such $x$ exists, then
+$U\subseteq W$ and $U^2=0$.  An idempotent subspace is a subalgebra, so a
+nonzero idempotent subspace of $V$ must be all of $V$.
+\end{proof}
+
+The same equations show that $E$ has no nonzero idempotent element.  For
+$x=au+bv+cw$, the $u$ and $w$ coordinates of $x^2=x$ are
+$4a^2=a$ and $2a^2+4ac=c$.  If $a=0$, then $x^2=0$ and $x=0$; if
+$a\ne0$, then $a=1/4$ and the second equation reads $1/8+c=c$.
+The realization and the ambient minimality assertion are kernel-checked in
+\texttt{Extension.lean}; the exact Gröbner computation in
+\texttt{exact\_search.py} independently gives the zero-only idempotent
+solution.  The Lean proof covers the $d=3$ realization over $\mathbb C$;
+the general family below is proved on paper and checked exactly for
+$d=2,3,4,5$.
+
+\section*{2. A family in every dimension and the bound $2d-1$}
+Fix $d\ge2$, put $m=d-1$, and assume $\charK\ne2$.  Let $E_d$ have natural
+basis $f_0,f_1^+,f_1^-,\ldots,f_m^+,f_m^-$, and set
+\[
+ u=f_0+\sum_{i=1}^m(f_i^++f_i^-),\qquad w_i=f_i^+-f_i^-,\qquad w_0=0,
+\]
+with
+\[
+ f_0^2=4u+2w_m,\qquad (f_i^+)^2=w_i+w_{i-1},\qquad
+ (f_i^-)^2=-w_i-w_{i-1}.
+\]
+For $V_d=\Span\{u,w_1,\ldots,w_m\}$ and
+$W=\Span\{w_1,\ldots,w_m\}$ one computes
+\[
+ u^2=4u+2w_m,\qquad uw_i=2w_i+2w_{i-1},\qquad W^2=0.       \tag{2}
+\]
+The operator $Nw_i=w_{i-1}$ is nilpotent, and
+$L_u|_W=2(I+N)$ is invertible.  Hence $V_d^2=V_d$ and the natural-basis
+squares span $V_d$, so $E_d^{(2)}=E_d^{(\infty)}=V_d\ne0$.
+
+If a subalgebra $U\subseteq V_d$ contains $u+z$ with $z\in W$, then
+$S=U\cap W$ is $N$-invariant and
+\[
+ (u+z)^2-4(u+z)=2w_m+4Nz\in S.
+\]
+This vector is cyclic for the single Jordan block $N$: its successive images
+have leading coefficients $2$ in positions $m,m-1,\ldots,1$.  Thus
+$S=W$ and $U=V_d$.  All other subalgebras lie in $W$ and square to zero.
+Therefore $V_d$ is minimal idempotent of dimension $d$.
+
+This intrinsic algebra has optimal evolution-algebra embedding dimension
+$2d-1$.  For an embedding in an $n$-dimensional evolution algebra with
+column-square matrix $M$, $\operatorname{rank}M\ge d$ because $V_d^2=V_d$.
+The embedded square-zero space $W$ has dimension $m$; the vectors $z\odot z$
+span a subspace of $\ker M$ of dimension at least $m$ (choose $m$ independent
+coordinate projections on $W$).  Hence
+\[
+ n=\operatorname{rank}M+\dim\ker M\ge d+m=2d-1.
+\]
+The displayed construction attains the bound.  This is an optimality theorem
+for this intrinsic family, not a claim that every three-dimensional minimal
+subspace needs five ambient dimensions.
+
+\section*{3. Dimension three and the ground field}
+For a three-dimensional evolution algebra let $M$ be the column-square
+matrix and $W=\im M=E^2$.  Over $\mathbb C$, the following are equivalent:
+\begin{enumerate}
+\item $E$ is nonsolvable and has no nonzero idempotent;
+\item $\operatorname{rank}M=2$ and a basis $u,v$ of $W$ satisfies
+ $v^2=0$, $u^2=au+bv$, $uv=(a/2)v$, with $a,b\ne0$;
+\item $W$ is isomorphic to $p^2=p+q$, $pq=q/2$, $q^2=0$.
+\end{enumerate}
+The proof reduces to the two-dimensional perfect algebra $W$.  Writing
+$u^2=au+bv$, $uv=cu+dv$, $v^2=0$, an idempotent with nonzero $u$-coordinate
+would, when $c\ne0$, give a root over $\mathbb C$ of
+$2(bc-ad)x^2+(2d+a)x-1=0$.  Thus $c=0$; perfectness gives $ad\ne0$ and
+idempotent-freeness forces $2d=a$ and $b\ne0$.  This yields the criterion.
+
+The field matters.  Over $\mathbb Q$, the two-dimensional algebra
+$e_1^2=e_2$, $e_2^2=2e_1$ is nonsolvable and idempotent-free over $\mathbb Q$:
+an idempotent would satisfy $x=2y^2$, $y=x^2$, hence $2x^3=1$, excluded by
+the rational-root theorem.  Over $\mathbb R$, every nonsolvable algebra of
+dimension at most two has a nonzero idempotent (in dimension two this follows
+from a real root of the odd cubic $ct^3-dt^2+at-b$), while the five-dimensional
+example above supplies a three-dimensional stable minimal subspace.
+
+In characteristic two, Barei's original matrix becomes solvable, but the
+following different algebra works over every field of characteristic two:
+\[
+ e_1^2=e_2+e_3,\qquad e_2^2=e_2+e_3,\qquad e_3^2=e_1+e_3.
+\]
+With $u=e_2+e_3$ and $v=e_1+e_2$, one has $E^2=\Span\{u,v\}$ and
+$u^2=v$, $uv=u$, $v^2=0$.  Since $(au+bv)^2=a^2v$, the plane has no nonzero
+idempotent, while it squares to itself.  This is certified in
+\texttt{CharacteristicTwo.lean}; the exact idempotent ideal is $(x_0,x_1,x_2)$.
+
+\section*{4. Verification, credit, and open questions}
+The $d=3$ case is checked in Lean~4 at the fixed public revision
+\href{https://github.com/the-omega-institute/trureturing/blob/097b962bd9b66d76d3886e544945f4dc6d080797/D5/S3/QuadraticForms/EvolutionAlgebras/BareiRemarkThreeFive.lean}{BareiRemarkThreeFive.lean}.
+The characteristic-two witness is also checked in the local Lean file
+\texttt{CharacteristicTwo.lean}; the general-$d$ family, the dimension-three
+criterion, and the remaining field arguments are written proofs supplemented
+by exact symbolic computations.  The note answers Barei's Remark~3.5 (with Muse Spark), and
+credits Hu--Wen, arXiv:2609.25023, Costoya--Fernández Ouaridi--Viruel,
+arXiv:2609.32784, and the classification of three-dimensional evolution
+algebras by Cabrera Casado--Siles Molina--Velasco.  The literature check was
+bounded; no priority claim is made for the Jordan family or the characteristic-
+two example.
+
+Open questions remain: can a different three-dimensional minimal idempotent
+subspace occur in a four-dimensional complex evolution algebra; how should
+minimal idempotent subspaces of dimension at least three be classified up to
+intrinsic isomorphism; and what is the prior-literature status of the exact
+families above?
+
+\paragraph{AI use.} The results were obtained with AI assistance in exploration,
+formalization, exact computation, and drafting.  The stated Lean theorems,
+symbolic computations, and hand proofs were checked against the supplied
+source files; responsibility for the mathematical claims remains with the
+authors.
+
+\end{document}

@@ -1,0 +1,514 @@
+{
+  "sympy_version": "1.14.0",
+  "convention": "columns are basis squares",
+  "search": [
+    {
+      "n": 3,
+      "matrices_checked": 64,
+      "idempotent_free": 8,
+      "minimal3_in_this_family": 0,
+      "first_minimal3": null
+    },
+    {
+      "n": 4,
+      "matrices_checked": 64,
+      "idempotent_free": 8,
+      "minimal3_in_this_family": 0,
+      "first_minimal3": null
+    },
+    {
+      "n": 5,
+      "matrices_checked": 384,
+      "idempotent_free": 64,
+      "minimal3_in_this_family": 16,
+      "first_minimal3": {
+        "parameters": [
+          -4,
+          -2,
+          -1,
+          -1,
+          -1
+        ],
+        "matrix_rows": [
+          [
+            "-4",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "-4",
+            "-1",
+            "1",
+            "-1",
+            "1"
+          ],
+          [
+            "-4",
+            "1",
+            "-1",
+            "1",
+            "-1"
+          ],
+          [
+            "-6",
+            "0",
+            "0",
+            "-1",
+            "1"
+          ],
+          [
+            "-2",
+            "0",
+            "0",
+            "1",
+            "-1"
+          ]
+        ],
+        "groebner": [
+          "x0",
+          "x1",
+          "x2",
+          "x3",
+          "x4"
+        ]
+      }
+    }
+  ],
+  "jordan_family": [
+    {
+      "d": 2,
+      "ambient_dimension": 3,
+      "matrix_rows": [
+        [
+          "4",
+          "0",
+          "0"
+        ],
+        [
+          "6",
+          "1",
+          "-1"
+        ],
+        [
+          "2",
+          "-1",
+          "1"
+        ]
+      ],
+      "derived_dimensions": [
+        3,
+        2,
+        2
+      ],
+      "groebner": [
+        "x0",
+        "x1",
+        "x2"
+      ],
+      "cyclic_determinant": "2"
+    },
+    {
+      "d": 3,
+      "ambient_dimension": 5,
+      "matrix_rows": [
+        [
+          "4",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "4",
+          "1",
+          "-1",
+          "1",
+          "-1"
+        ],
+        [
+          "4",
+          "-1",
+          "1",
+          "-1",
+          "1"
+        ],
+        [
+          "6",
+          "0",
+          "0",
+          "1",
+          "-1"
+        ],
+        [
+          "2",
+          "0",
+          "0",
+          "-1",
+          "1"
+        ]
+      ],
+      "derived_dimensions": [
+        5,
+        3,
+        3
+      ],
+      "groebner": [
+        "x0",
+        "x1",
+        "x2",
+        "x3",
+        "x4"
+      ],
+      "cyclic_determinant": "-4"
+    },
+    {
+      "d": 4,
+      "ambient_dimension": 7,
+      "matrix_rows": [
+        [
+          "4",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "4",
+          "1",
+          "-1",
+          "1",
+          "-1",
+          "0",
+          "0"
+        ],
+        [
+          "4",
+          "-1",
+          "1",
+          "-1",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "4",
+          "0",
+          "0",
+          "1",
+          "-1",
+          "1",
+          "-1"
+        ],
+        [
+          "4",
+          "0",
+          "0",
+          "-1",
+          "1",
+          "-1",
+          "1"
+        ],
+        [
+          "6",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "-1"
+        ],
+        [
+          "2",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1",
+          "1"
+        ]
+      ],
+      "derived_dimensions": [
+        7,
+        4,
+        4
+      ],
+      "groebner": [
+        "x0",
+        "x1",
+        "x2",
+        "x3",
+        "x4",
+        "x5",
+        "x6"
+      ],
+      "cyclic_determinant": "-8"
+    },
+    {
+      "d": 5,
+      "ambient_dimension": 9,
+      "matrix_rows": [
+        [
+          "4",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "4",
+          "1",
+          "-1",
+          "1",
+          "-1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "4",
+          "-1",
+          "1",
+          "-1",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "4",
+          "0",
+          "0",
+          "1",
+          "-1",
+          "1",
+          "-1",
+          "0",
+          "0"
+        ],
+        [
+          "4",
+          "0",
+          "0",
+          "-1",
+          "1",
+          "-1",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "4",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "-1",
+          "1",
+          "-1"
+        ],
+        [
+          "4",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1",
+          "1",
+          "-1",
+          "1"
+        ],
+        [
+          "6",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "-1"
+        ],
+        [
+          "2",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1",
+          "1"
+        ]
+      ],
+      "derived_dimensions": [
+        9,
+        5,
+        5
+      ],
+      "groebner": [
+        "x0",
+        "x1",
+        "x2",
+        "x3",
+        "x4",
+        "x5",
+        "x6",
+        "x7",
+        "x8"
+      ],
+      "cyclic_determinant": "16"
+    }
+  ],
+  "barei_classification": {
+    "counterexample": true,
+    "u": [
+      "-2",
+      "0",
+      "2"
+    ],
+    "v": [
+      "0",
+      "1",
+      "-1"
+    ],
+    "a": "4",
+    "b": "-4",
+    "c": "0",
+    "d": "2"
+  },
+  "hu_wen_classification": {
+    "counterexample": true,
+    "u": [
+      "-2",
+      "2",
+      "0"
+    ],
+    "v": [
+      "1",
+      "0",
+      "1"
+    ],
+    "a": "4",
+    "b": "-4",
+    "c": "0",
+    "d": "2"
+  },
+  "classification_checks": [
+    {
+      "parameter": -2,
+      "criterion": false,
+      "groebner": [
+        "x2**2 + 5*x2/8",
+        "x0 - x2/5",
+        "x1 - 4*x2/5"
+      ]
+    },
+    {
+      "parameter": -1,
+      "criterion": false,
+      "groebner": [
+        "x2**2 + 4*x2/3",
+        "x0 - x2/4",
+        "x1 - 3*x2/4"
+      ]
+    },
+    {
+      "parameter": 1,
+      "criterion": false,
+      "groebner": [
+        "x2**2 - 2*x2",
+        "x0 - x2/2",
+        "x1 - x2/2"
+      ]
+    },
+    {
+      "parameter": 2,
+      "criterion": true,
+      "groebner": [
+        "x0",
+        "x1",
+        "x2"
+      ]
+    },
+    {
+      "parameter": 3,
+      "criterion": false,
+      "groebner": [
+        "x1**2 - x1/3",
+        "x0 + x1",
+        "x2"
+      ]
+    },
+    {
+      "parameter": 4,
+      "criterion": false,
+      "groebner": [
+        "x2**2 - x2/8",
+        "x0 + x2",
+        "x1 - 2*x2"
+      ]
+    }
+  ],
+  "rational_dimension_two": {
+    "matrix_rows": [
+      [
+        "0",
+        "2"
+      ],
+      [
+        "1",
+        "0"
+      ]
+    ],
+    "derived_dimensions": [
+      2,
+      2
+    ],
+    "groebner": [
+      "x0**2 - x1",
+      "-x0/2 + x1**2"
+    ],
+    "nonzero_condition": "x0^3 = 1/2; no rational root"
+  },
+  "characteristic_two": {
+    "matrix_rows": [
+      [
+        "0",
+        "0",
+        "1"
+      ],
+      [
+        "1",
+        "1",
+        "0"
+      ],
+      [
+        "1",
+        "1",
+        "1"
+      ]
+    ],
+    "groebner": [
+      "x0",
+      "x1",
+      "x2"
+    ],
+    "verified_products": "u^2=v, uv=u, v^2=0 modulo 2; u,v independent",
+    "derived_dimensions_over_char2": [
+      3,
+      2,
+      2
+    ]
+  }
+}
